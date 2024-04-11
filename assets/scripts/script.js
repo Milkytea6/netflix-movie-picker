@@ -15,9 +15,16 @@ async function getStreamingData(url) {
         const response = await fetch(url, options);
         const result = await response.json();
         console.log(result);
-        for (let i = 0; i < result.length; i++) {
-            console.log(result[i]);
-            const movieCard = document.createElement('div').classList.add('movie-card').innerhtml('title');
+        for (let i = 0; i < result.result.length; i++) {
+            console.log(result.result[i]);
+            const movieCard = document.createElement('div');
+            movieCard.classList.add('movie-card');
+            const movieTitle = document.createElement('h2');
+            movieTitle.classList.add('movie-title');
+            movieTitle.textContent = ('title');
+            const movieDescription = document.createElement('p');
+            movieDescription.classList.add('movie-description');
+            movieCard.append(movieTitle, movieDescription);
             movieResults.append(movieCard);
         }
     } catch (error) {
