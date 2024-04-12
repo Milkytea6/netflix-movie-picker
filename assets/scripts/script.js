@@ -17,14 +17,31 @@ async function getStreamingData(url) {
         console.log(result);
         for (let i = 0; i < result.result.length; i++) {
             console.log(result.result[i]);
+            // Movie card div
             const movieCard = document.createElement('div');
             movieCard.classList.add('movie-card');
+            // Movie Img
+            const movieImg = document.createElement('img');
+            movieImg.classList.add('movie-img');
+            movieImg.src = 'url of img';
+            // Movie Title
             const movieTitle = document.createElement('h2');
             movieTitle.classList.add('movie-title');
-            movieTitle.textContent = ('title');
-            const movieDescription = document.createElement('p');
-            movieDescription.classList.add('movie-description');
-            movieCard.append(movieTitle, movieDescription);
+            movieTitle.textContent = (`${result.result[i].title}`);
+            // Movie Genres
+            const movieGenre = document.createElement('p');
+            movieGenre.classList.add('movie-Genre');
+            movieGenre.textContent = (`${result.result[i].genres.map((genre)=> genre.name).join(',')}`);
+            // Movie Service
+            const movieService = document.createElement('p');
+            movieService.classList.add('movie-service');
+            // const serviceArray = result.result[i].streamingInfo.us.map((service)=> service.service);
+            // console.log(serviceArray);
+
+            // movieService.textContent = (`${result.result[i].streamingInfo.us[0].service}`);
+            // Append movie title and genre to card
+            movieCard.append(movieTitle, movieGenre, movieService);
+            // Append card to document
             movieResults.append(movieCard);
         }
     } catch (error) {
