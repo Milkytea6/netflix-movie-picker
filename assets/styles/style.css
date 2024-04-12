@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#search-form {
+    display: flex;
+justify-content: end;
+}
+    body {
+        background-color: rgb(11, 2, 59);
+    }
+    nav{
+        background-color: rgb(222, 218, 225);
+    }
+    #movie-button {
+        border: 20px solid lightgray;margin-top: 8px;
+        display: flex;
+        justify-content: center;
+    }
