@@ -1,5 +1,4 @@
 const searchForm = document.getElementById('search-form');
-const movieButton = document.getElementById('movie-button');
 const movieResults = document.getElementById('movie-results');
 
 const options = {
@@ -77,3 +76,25 @@ searchForm.addEventListener('submit', function (event) {
     getStreamingData(url);
 }
 );
+
+const modalEl = document.querySelector('main div');
+
+console.log(modalEl);
+modalEl.addEventListener('submit', function (event){
+    event.preventDefault();
+
+    movieResults.innerHTML = "";
+    const service = 'netflix';// Service Netflix only
+    const country = 'us';//us
+    const outputLang = 'en';// english
+    const orderBy = 'original_title';// sort by tite
+    const genreCodes = '10749,35';// genre codes
+    const genreRel  = 'and';// Includes all selected genres
+    const showType = `movie`;// Results are series or movie
+
+    const url = `https://streaming-availability.p.rapidapi.com/search/filters?services=${service}&country=${country}&output_language=${outputLang}&order_by=${orderBy}&genres=${genreCodes}&genres_relation=${genreRel}&show_type=${showType}`;
+
+    console.log(url);
+    getStreamingData(url);
+
+})
