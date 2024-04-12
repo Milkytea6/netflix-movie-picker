@@ -3,29 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/semantic/semantic.min.css">
     <title>Netflix Movie Picker</title>
-
 </head>
 <body>
     <header>
-        <h1>Netflix Movie Picker</h1>
         <form id="search-form">
+            <h1>Netflix Movie Picker</h1>
             <input id="search-bar" placeholder="Search">
             <button id="search-button">Search</button>
-        </form>
-        
+        </form>     
     </header>
     <main>
-        <div id="modal">
-            <button id="movie-button">Pick a Movie!</button>
+        <button id="movie-button" class="ui.modal">Pick a Movie!</button>
+        <div class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">
+              Choose your Genres
+            </div>
+            <div class="content">
+              <div class="description">
+                <div class="genre-container">
+                    <button class="genres">action</button>
+                    <button class="genres">comedy</button>
+                    <button class="genres">thriller</button>
+                    <button class="genres">Animation</button>
+                    <button class="genres">Biography</button>
+                    <button class="genres">Comedy</button>
+                    <button class="genres">Crime</button>
+                    <button class="genres">Documentary</button>
+                    <button class="genres">Drama</button>
+                    <button class="genres">Family</button>
+                    <button class="genres">Fantasy</button>
+                    <button class="genres">History</button>
+                    <button class="genres">Horror</button>
+                    <button class="genres">Music</button>
+                    <button class="genres">Musical</button>
+                    <button class="genres">Mystery</button>
+                    <button class="genres">Romance</button>
+                    <button class="genres">Science Fiction</button>
+                    <button class="genres">Sport</button>
+                    <button class="genres">War</button>
+                    <button class="genres">Western</button>
+                </div>
+              </div>
+            </div>
+            <div class="actions">
+              <div class="ui positive right labeled icon button">
+                Search
+                <i class="checkmark icon"></i>
+              </div>
+            </div>
         </div>
-
-
-        <div id="movie-results">
-            
-        </div>
+        <div id="movie-results"></div>
     </main>
-
     <script src="./assets/scripts/script.js"></script>
+    <script src="./assets/semantic/semantic.min.js"></script>
+    <script src="./assets/scripts/modal.js"></script>
 </body>
 </html>
