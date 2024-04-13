@@ -17,3 +17,8 @@ justify-content: end;
         display: flex;
         justify-content: center;
     }
+
+.dark{
+    background-color: rgb(33, 33, 33);
+    color: #ffffff;
+}
