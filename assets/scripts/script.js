@@ -1,5 +1,4 @@
 const searchForm = document.getElementById('search-form');
-const movieButton = document.getElementById('movie-button');
 const movieResults = document.getElementById('movie-results');
 
 const options = {
@@ -23,7 +22,7 @@ async function getStreamingData(url) {
             // Movie Img
             const movieImg = document.createElement('img');
             movieImg.classList.add('movie-img');
-            movieImg.src = 'url of img';
+            // movieImg.src = 'url of img';
             // Movie Title
             const movieTitle = document.createElement('h2');
             movieTitle.classList.add('movie-title');
@@ -31,14 +30,27 @@ async function getStreamingData(url) {
             // Movie Genres
             const movieGenre = document.createElement('p');
             movieGenre.classList.add('movie-Genre');
-            movieGenre.textContent = (`${result.result[i].genres.map((genre)=> genre.name).join(',')}`);
+            movieGenre.textContent = (`${result.result[i].genres.map((genre) => genre.name).join(',')}`);
             // Movie Service
             const movieService = document.createElement('p');
             movieService.classList.add('movie-service');
-            // const serviceArray = result.result[i].streamingInfo.us.map((service)=> service.service);
-            // console.log(serviceArray);
+            const serviceArray = result.result[i].streamingInfo.us
+            // If there is streaming info, then it will itterate over the array returning each unique service that the movie is on.
+            if (serviceArray) {
+                let uniqueServices = [];
+                for (let i = 0; i < serviceArray.length; i++) {
+                    uniqueServices = uniqueServices.concat(serviceArray[i].service)
+                }
+                uniqueServices = uniqueServices.filter((item,
+                    index) => uniqueServices.indexOf(item) === index);
 
-            // movieService.textContent = (`${result.result[i].streamingInfo.us[0].service}`);
+                movieService.textContent = uniqueServices.join(',');
+            }
+
+            else if (!serviceArray) {
+                movieService.textContent = ('Service is unavailable.');
+            }
+
             // Append movie title and genre to card
             movieCard.append(movieTitle, movieGenre, movieService);
             // Append card to document
@@ -54,6 +66,8 @@ async function getStreamingData(url) {
 
 searchForm.addEventListener('submit', function (event) {
     event.preventDefault();
+    // Clears the  results section
+    movieResults.innerHTML = "";
 
     const searchInput = document.getElementById('search-bar').value;
 
@@ -62,3 +76,25 @@ searchForm.addEventListener('submit', function (event) {
     getStreamingData(url);
 }
 );
+
+const modalEl = document.querySelector('main div');
+
+console.log(modalEl);
+modalEl.addEventListener('submit', function (event){
+    event.preventDefault();
+
+    movieResults.innerHTML = "";
+    const service = 'netflix';// Service Netflix only
+    const country = 'us';//us
+    const outputLang = 'en';// english
+    const orderBy = 'original_title';// sort by tite
+    const genreCodes = '10749,35';// genre codes
+    const genreRel  = 'and';// Includes all selected genres
+    const showType = `movie`;// Results are series or movie
+
+    const url = `https://streaming-availability.p.rapidapi.com/search/filters?services=${service}&country=${country}&output_language=${outputLang}&order_by=${orderBy}&genres=${genreCodes}&genres_relation=${genreRel}&show_type=${showType}`;
+
+    console.log(url);
+    getStreamingData(url);
+
+})
