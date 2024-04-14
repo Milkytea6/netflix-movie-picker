@@ -19,19 +19,19 @@
   </header>
     <main>
         <button id="movie-button" class="ui.modal">Pick a Movie!</button>
-        <div class="ui modal">
+        <div id="modal-div" class="ui modal">
             <i class="close icon"></i>
             <div class="header">
               Choose your Genres
             </div>
             <div class="content">
               <div class="description">
-                <div class="genre-container">
-                    <button id="genres" class="ui inverted teal basic button" data-result-api="28";>action</button>
-                    <button id="genres" class="ui inverted teal basic button" data-result-api="35";>comedy</button>
-                    <button id="genres" class="ui inverted teal basic button" data-result-api="53";>thriller</button>
+                <div class="genre-container bg-dark">
+                    <button id="genres" class="ui inverted teal basic button" data-result-api="28";>Action</button>
+                    <button id="genres" class="ui inverted teal basic button" data-result-api="35";>Comedy</button>
+                    <button id="genres" class="ui inverted teal basic button" data-result-api="53";>Thriller</button>
                     <button id="genres" class="ui inverted teal basic button" data-result-api="16";>Animation</button>
-                    <button id="genres" class="ui inverted teal basic button" data-result-api="">Biography</button>
+                    <button id="genres" class="ui inverted teal basic button" data-result-api="1">Biography</button>
                     <button id="genres" class="ui inverted teal basic button" data-result-api="35">Comedy</button>
                     <button id="genres" class="ui inverted teal basic button" data-result-api="80">Crime</button>
                     <button id="genres" class="ui inverted teal basic button" data-result-api="99">Documentary</button>
@@ -41,18 +41,26 @@
                     <button id="genres" class="ui inverted teal basic button" data-result-api="36">History</button>
                     <button id="genres" class="ui inverted teal basic button" data-result-api="27">Horror</button>
                     <button id="genres" class="ui inverted teal basic button" data-result-api="10402">Music</button>
-                    <button id="genres" class="ui inverted teal basic button" data-result-api="">Musical</button>
+                    <button id="genres" class="ui inverted teal basic button" data-result-api="4">Musical</button>
                     <button id="genres" class="ui inverted teal basic button" data-result-api="9648">Mystery</button>
                     <button id="genres" class="ui inverted teal basic button" data-result-api="10749">Romance</button>
                     <button id="genres" class="ui inverted teal basic button" data-result-api="878">Science Fiction</button>
-                    <button id="genres" class="ui inverted teal basic button" data-result-api="">Sport</button>
+                    <button id="genres" class="ui inverted teal basic button" data-result-api="5">Sport</button>
                     <button id="genres" class="ui inverted teal basic button" data-result-api="10752">War</button>
-                    <button id="genres" class="ui inverted teal basic button" data-result-api="">Western</button>
+                    <button id="genres" class="ui inverted teal basic button" data-result-api="37">Western</button>
                 </div>
+              
               </div>
             </div>
             <div class="actions">
-              <div class="ui positive right labeled icon button">
+              <div id="modal-type" class="ui large buttons">
+                <button class="type ui button" value="movie">Movie</button>
+                <div class="or"></div>
+                <button class="type ui button" value="all">Both</button>
+                <div class="or"></div>
+                <button class="type ui button" value="series">Series</button>
+              </div>
+              <div id="modal-submit" class="ui positive right labeled icon button">
                 Search
                 <i class="checkmark icon"></i>
               </div>
@@ -60,8 +68,9 @@
         </div>
         <div id="movie-results"></div>
     </main>
-    <script src="./assets/scripts/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="./assets/semantic/semantic.min.js"></script>
+    <script src="./assets/scripts/script.js"></script>
     <script src="./assets/scripts/modal.js"></script>
 </body>
 </html>
