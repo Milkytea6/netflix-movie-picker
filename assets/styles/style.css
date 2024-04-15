@@ -9,6 +9,12 @@
     width: 100%;
     margin-bottom: 10px;
 }
+#modal-div .header,
+#modal-div .content,
+#modal-div .actions{
+    color: aliceblue;
+    background-color: darkslategrey;
+}
 body {
         background-color: rgb(11, 2, 59);
     }
