@@ -1,6 +1,6 @@
 const searchForm = document.getElementById('search-form');
 const movieResults = document.getElementById('movie-results');
-const options = {
+let options = {
     method: 'GET',
     headers: {
         'X-RapidAPI-Key': 'db036f9a6amshfdc5efa0a9dbed8p1e4200jsn1ac6baaee515',
@@ -21,7 +21,7 @@ async function getStreamingData(url) {
             // Movie Img
             const movieImg = document.createElement('img');
             movieImg.classList.add('movie-img');
-            // movieImg.src = 'url of img';
+
             // Movie Title
             const movieTitle = document.createElement('h2');
             movieTitle.classList.add('movie-title');
@@ -53,17 +53,44 @@ async function getStreamingData(url) {
             else if (!serviceArray) {
                 movieService.textContent = ('Service is unavailable.');
             }
-
+            
             // Append movie title and genre to card
             movieCard.append(movieTitle, movieType, movieGenre, movieService);
             // Append card to document
             movieResults.append(movieCard);
+            
+            
+            // Get image API
+            const movieId = result.result[i].imdbId;
+            console.log(movieId);
+            const urlImbd = `https://imdb146.p.rapidapi.com/v1/title/?id=${movieId}`;
+            options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': 'db036f9a6amshfdc5efa0a9dbed8p1e4200jsn1ac6baaee515',
+                    'X-RapidAPI-Host': 'imdb146.p.rapidapi.com'
+                }
+            };
+
+                console.log(urlImbd);
+                const response2 = await fetch(urlImbd, options);
+                const result2 = await response2.json();
+                console.log(result2);
+                // Movie Img
+                // const movieImg = document.createElement('img');
+                // movieImg.classList.add('movie-img');
+                const imgKey = result2.primaryImage;
+                if(imgKey) {
+                movieImg.src = imgKey.url;
+                movieCard.append(movieImg);
+        }
+            
+            // end get image api
         }
     } catch (error) {
         console.error(error);
     }
-
-
+    
 
 }
 

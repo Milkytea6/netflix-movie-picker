@@ -13,3 +13,7 @@
     justify-content: start;
     background-color: rgb(18, 4, 100);
 }
+.movie-img{
+    max-width: 200px;
+    max-height: 200px;
+}
