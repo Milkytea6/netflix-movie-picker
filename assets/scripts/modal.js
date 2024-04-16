@@ -2,13 +2,34 @@ const modalButton = document.getElementById('movie-button');
 const modal = document.querySelector('.ui.modal');
 const genreButtons = document.querySelectorAll('.genre-container #genres')
 const modalSubmit = document.querySelector('#modal-submit');
+const overlay= document.getElementById('overlay');
+const closeX= document.getElementById('close-x');
 
 
 
 modalButton.addEventListener('click', function () {
     modal.classList.add('active');
+    modal.style.display='block';
+    overlay.style.display='block';
 })
+
+function closeModal(){
+    modal.style.display='none';
+    overlay.style.display='none';
+}
+
+window.onclick= function(e){
+    if (e.target == overlay) {
+        closeModal();
+    };
+}
+
+closeX.addEventListener('click', function() {
+    closeModal();
+})
+
 let genreArray = [];
+
 genreButtons.forEach(function (button) {
     // Add event listener for each button (e.g., click event)
     button.addEventListener('click', function () {
@@ -58,7 +79,6 @@ async function getStreamingData(url) {
         const result = await response.json();
         console.log(result);
         for (let i = 0; i < result.result.length; i++) {
-            console.log(result.result[i]);
             // Movie card div
             const movieCard = document.createElement('div');
             movieCard.classList.add('movie-card');
