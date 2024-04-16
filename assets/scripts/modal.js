@@ -24,6 +24,20 @@ window.onclick = function (e) {
     };
 }
 
+function handleClick(event) {
+    // Toggle the "selected" class on the clicked button
+    event.target.classList.toggle('basic');
+    // Change color for all selected buttons
+    var selectedButtons = document.querySelectorAll('.ui inverted teal basic button #genres');
+    selectedButtons.forEach(function(button) {
+      button.style.backgroundColor = 'rgb(0, 94, 94)'; // Change to another color (e.g., blue)
+    });
+};
+  // Add click event listener to each button
+  genreButtons.forEach(function(button) {
+    button.addEventListener('click', handleClick);
+});
+
 closeX.addEventListener('click', function () {
     closeModal();
 })

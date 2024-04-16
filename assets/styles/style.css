@@ -9,12 +9,14 @@
     width: 100%;
     margin-bottom: 10px;
 }
+
 #modal-div .header,
 #modal-div .content,
 #modal-div .actions{
     color: aliceblue;
     background-color: darkslategrey;
 }
+
 #modal-div .header{
     display: flex;
     justify-content: space-between;
