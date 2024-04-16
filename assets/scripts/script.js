@@ -18,6 +18,12 @@ async function getStreamingData(url) {
             // Movie card div
             const movieCard = document.createElement('div');
             movieCard.classList.add('movie-card');
+            // movie img div
+            const movieImgDiv = document.createElement('div');
+            movieImgDiv.classList.add('movie-img-div');
+            // movie text div
+            const movieTextDiv = document.createElement('div');
+            movieTextDiv.classList.add('movie-text-div');
             // Movie Img
             const movieImg = document.createElement('img');
             movieImg.classList.add('movie-img');
@@ -53,13 +59,15 @@ async function getStreamingData(url) {
             else if (!serviceArray) {
                 movieService.textContent = ('Service is unavailable.');
             }
-            
+
             // Append movie title and genre to card
-            movieCard.append(movieTitle, movieType, movieGenre, movieService);
+            movieTextDiv.append(movieTitle, movieType, movieGenre, movieService);
+            // append div to movie card
+            movieCard.append(movieTextDiv)
             // Append card to document
             movieResults.append(movieCard);
-            
-            
+
+
             // Get image API
             const movieId = result.result[i].imdbId;
             console.log(movieId);
@@ -72,25 +80,27 @@ async function getStreamingData(url) {
                 }
             };
 
-                console.log(urlImbd);
-                const response2 = await fetch(urlImbd, options);
-                const result2 = await response2.json();
-                console.log(result2);
-                // Movie Img
-                // const movieImg = document.createElement('img');
-                // movieImg.classList.add('movie-img');
-                const imgKey = result2.primaryImage;
-                if(imgKey) {
+            console.log(urlImbd);
+            const response2 = await fetch(urlImbd, options);
+            const result2 = await response2.json();
+            console.log(result2);
+            // Movie Img
+            // const movieImg = document.createElement('img');
+            // movieImg.classList.add('movie-img');
+            const imgKey = result2.primaryImage;
+            if (imgKey) {
                 movieImg.src = imgKey.url;
-                movieCard.append(movieImg);
-        }
-            
+
+                movieImgDiv.append(movieImg);
+                movieCard.append(movieImgDiv);
+            }
+
             // end get image api
         }
     } catch (error) {
         console.error(error);
     }
-    
+
 
 }
 

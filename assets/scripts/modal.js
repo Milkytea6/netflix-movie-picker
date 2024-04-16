@@ -94,10 +94,15 @@ async function getStreamingData(url) {
             // Movie card div
             const movieCard = document.createElement('div');
             movieCard.classList.add('movie-card');
+             // movie img div
+             const movieImgDiv = document.createElement('div');
+             movieImgDiv.classList.add('movie-img-div');
+             // movie text div
+            const movieTextDiv = document.createElement('div');
+            movieTextDiv.classList.add('movie-text-div');
             // Movie Img
             const movieImg = document.createElement('img');
             movieImg.classList.add('movie-img');
-            // movieImg.src = 'url of img';
             // Movie Title
             const movieTitle = document.createElement('h2');
             movieTitle.classList.add('movie-title');
@@ -131,7 +136,9 @@ async function getStreamingData(url) {
             }
 
             // Append movie title and genre to card
-            movieCard.append(movieTitle, movieType, movieGenre, movieService);
+            movieTextDiv.append(movieTitle, movieType, movieGenre, movieService);
+            // append div to movie card
+            movieCard.append(movieTextDiv)
             // Append card to document
             movieResults.append(movieCard);
             // Get image API
@@ -156,7 +163,10 @@ async function getStreamingData(url) {
            const imgKey = result2.primaryImage;
                 if(imgKey) {
                 movieImg.src = imgKey.url;
-                movieCard.append(movieImg);
+                const movieImgDiv = document.createElement('div');
+                movieImgDiv.classList.add('movie-img-div');
+                movieImgDiv.append(movieImg);
+                movieCard.append(movieImgDiv);
         }
 
             // end get image api
