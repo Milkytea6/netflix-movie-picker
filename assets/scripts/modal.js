@@ -2,29 +2,29 @@ const modalButton = document.getElementById('movie-button');
 const modal = document.querySelector('.ui.modal');
 const genreButtons = document.querySelectorAll('.genre-container #genres')
 const modalSubmit = document.querySelector('#modal-submit');
-const overlay= document.getElementById('overlay');
-const closeX= document.getElementById('close-x');
+const overlay = document.getElementById('overlay');
+const closeX = document.getElementById('close-x');
 
 
 
 modalButton.addEventListener('click', function () {
     modal.classList.add('active');
-    modal.style.display='block';
-    overlay.style.display='block';
+    modal.style.display = 'block';
+    overlay.style.display = 'block';
 })
 
-function closeModal(){
-    modal.style.display='none';
-    overlay.style.display='none';
+function closeModal() {
+    modal.style.display = 'none';
+    overlay.style.display = 'none';
 }
 
-window.onclick= function(e){
+window.onclick = function (e) {
     if (e.target == overlay) {
         closeModal();
     };
 }
 
-closeX.addEventListener('click', function() {
+closeX.addEventListener('click', function () {
     closeModal();
 })
 
@@ -68,13 +68,11 @@ modalSubmit.addEventListener('click', function () {
 
     const url = `https://streaming-availability.p.rapidapi.com/search/filters?services=${service}&country=${country}&output_language=${outputLang}&order_by=${orderBy}&genres=${genreCodes}&genres_relation=${genreRel}&show_type=${showType}`;
 
-    console.log(url);
     getStreamingData(url);
 });
 // copied from script.js 
 async function getStreamingData(url) {
     try {
-        console.log(url);
         const response = await fetch(url, options);
         const result = await response.json();
         console.log(result);
@@ -122,6 +120,32 @@ async function getStreamingData(url) {
             movieCard.append(movieTitle, movieType, movieGenre, movieService);
             // Append card to document
             movieResults.append(movieCard);
+            // Get image API
+            const movieId = result.result[i].imdbId;
+            console.log(movieId);
+            const urlImbd = `https://imdb146.p.rapidapi.com/v1/title/?id=${movieId}`;
+            options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': 'db036f9a6amshfdc5efa0a9dbed8p1e4200jsn1ac6baaee515',
+                    'X-RapidAPI-Host': 'imdb146.p.rapidapi.com'
+                }
+            };
+
+            console.log(urlImbd);
+            const response2 = await fetch(urlImbd, options);
+            const result2 = await response2.json();
+            console.log(result2);
+            // Movie Img
+            // const movieImg = document.createElement('img');
+            // movieImg.classList.add('movie-img');
+           const imgKey = result2.primaryImage;
+                if(imgKey) {
+                movieImg.src = imgKey.url;
+                movieCard.append(movieImg);
+        }
+
+            // end get image api
         }
     } catch (error) {
         console.error(error);
