@@ -2,7 +2,6 @@
     display:flex;
     flex-wrap: wrap;
     margin: 5px;
-    margin-top: 290px;
 }
 .movie-card{
     flex: 1 0 30vw;
