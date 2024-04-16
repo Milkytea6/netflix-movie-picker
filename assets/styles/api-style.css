@@ -4,14 +4,19 @@
     margin: 5px;
 }
 .movie-card{
+    display: flex;
     flex: 1 0 30vw;
-    border: 5px solid rgb(5, 5, 5);
+    border: 5px solid rgb(161, 0, 0);
     box-shadow: 5px 5px 5px black;
     margin: 5px;
     padding: 20px;
     font-size: larger;
     justify-content: start;
-    background-color: rgb(18, 4, 100);
+    flex-direction: row;
+    background-color: rgb(60, 60, 60);
+}
+.movie-img-div{
+    justify-content: space-around;
 }
 .movie-img{
     max-width: 200px;
