@@ -3,7 +3,7 @@ const movieResults = document.getElementById('movie-results');
 let options = {
     method: 'GET',
     headers: {
-        'X-RapidAPI-Key': 'db036f9a6amshfdc5efa0a9dbed8p1e4200jsn1ac6baaee515',
+        'X-RapidAPI-Key': '5ecfdebb7amsh0b7e70f9b85d7cbp1f36b1jsnb18ccc4bac95',
         'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
     }
 };
@@ -103,7 +103,7 @@ async function getStreamingData(url) {
             const options2 = {
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Key': 'db036f9a6amshfdc5efa0a9dbed8p1e4200jsn1ac6baaee515',
+                    'X-RapidAPI-Key': '5ecfdebb7amsh0b7e70f9b85d7cbp1f36b1jsnb18ccc4bac95',
                     'X-RapidAPI-Host': 'imdb146.p.rapidapi.com'
                 }
             };
