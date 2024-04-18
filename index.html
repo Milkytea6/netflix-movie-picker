@@ -13,20 +13,20 @@
       <nav>
         <h1>Netflix Movie Picker</h1>
         <form id="search-form"> 
-          <div class="ui search">
+          <div class="ui search" id="searchDiv">
             <div class="ui icon input">
-              <input class="prompt" id="search-bar" type="text" autocomplete="off" placeholder="Search Movies...">
-              <i class="search icon"></i>
-            </div>
+              <input class="prompt" id="search-bar" type="text" autocomplete="off" placeholder="Search Movies...">            </div>
             <div class="results"></div>
           </div>          
-          <button id="search-button">Search</button>
+          <button id="search-button" class="circular ui icon button">
+            <i class="search icon"></i>
+          </button>
           <ul id="recentSearches"></ul>
         </form>
       </nav>     
   </header>
     <main>
-        <button id="movie-button" class="ui.modal">Pick a Movie!</button>
+        <button id="movie-button" class="ui.modal ui inverted red button">Pick a Movie!</button>
        <div class="generalContainer">
          <div id="modal-div" class="ui modal">
              <i class="close"></i>
@@ -76,7 +76,8 @@
              </div>
            </div>
        </div>
-          <div class="overlay" id="overlay"></div>
+        <div class="overlay" id="overlay"></div>
+        <img src="https://www.pngplay.com/wp-content/uploads/2/Popcorn-Transparent-File.png" alt="popcorn" class="rotate">
         <div id="movie-results"></div>
     </main>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
