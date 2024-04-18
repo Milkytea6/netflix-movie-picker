@@ -151,9 +151,8 @@ searchForm.addEventListener('submit', function (event) {
     // Clears the  results section
     movieResults.innerHTML = "";
     var pop= document.querySelector('.rotate');
-    pop.style.display='none'
+    pop.style.display='none';
     const searchInput = document.getElementById('search-bar').value;
-
     const url = `https://streaming-availability.p.rapidapi.com/search/title?title=${searchInput}&country=us&show_type=all&output_language=en`;
     console.log(url);
     getStreamingData(url);
@@ -176,7 +175,7 @@ modalEl.addEventListener('submit', function (event) {
 
     const url = `https://streaming-availability.p.rapidapi.com/search/filters?services=${service}&country=${country}&output_language=${outputLang}&order_by=${orderBy}&genres=${genreCodes}&genres_relation=${genreRel}&show_type=${showType}`;
     var pop= document.querySelector('.rotate');
-    pop.style.display='none'
+    pop.style.display='none';
     console.log(url);
     getStreamingData(url);
 
