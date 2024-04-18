@@ -45,11 +45,10 @@ closeX.addEventListener('click', function () {
 let genreArray = [];
 
 genreButtons.forEach(function (button) {
-    // Add event listener for each button (e.g., click event)
+    // Add event listener for each button
     button.addEventListener('click', function () {
         // Retrieve the API value attached to the button
         const apiValue = button.getAttribute('data-result-api');
-        // Your code here for using the API value
         console.log('API value attached to button: ' + apiValue);
         genreArray.push(apiValue);
     });
@@ -167,15 +166,14 @@ async function getStreamingData(url) {
                 movieImgDiv.classList.add('movie-img-div');
                 movieImgDiv.append(movieImg);
                 movieCard.append(movieImgDiv);
-        }
+        };
 
             // end get image api
-        }
-    } catch (error) {
-        console.error(error);
-    }
+        };
+        } catch (error) {
+            console.error(error);
+        };
 
 
-
-}
+};
 

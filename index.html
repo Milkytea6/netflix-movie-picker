@@ -13,9 +13,16 @@
       <nav>
         <h1>Netflix Movie Picker</h1>
         <form id="search-form"> 
-         <button id="search-button">Search</button>
-         <input id="search-bar" placeholder="Search">
-         </form>
+          <div class="ui search">
+            <div class="ui icon input">
+              <input class="prompt" id="search-bar" type="text" autocomplete="off" placeholder="Search Movies...">
+              <i class="search icon"></i>
+            </div>
+            <div class="results"></div>
+          </div>          
+          <button id="search-button">Search</button>
+          <ul id="recentSearches"></ul>
+        </form>
       </nav>     
   </header>
     <main>
@@ -27,7 +34,7 @@
                <h1>Choose your Genres</h1>
                <span id="close-x">&#10006;</span>
              </div>
-             <div class="content">
+             <div class="genre-content">
                <div class="description">
                  <div class="genre-container bg-dark">
                      <button id="genres" class="ui inverted teal basic button" data-result-api="28";>Action</button>

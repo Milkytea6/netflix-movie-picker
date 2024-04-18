@@ -136,3 +136,28 @@ modalEl.addEventListener('submit', function (event) {
     getStreamingData(url);
 
 })
+
+function saveSearch(){
+    var searchInput= document.getElementById('search-bar').value.trim();
+    var searches= JSON.parse(localStorage.getItem('recentSearches')) || [];
+    var content= {title: searchInput};
+    searches.push(content);
+    let maxSearches= 10;
+    if (searches.length > maxSearches){
+        searches.shift();
+    };
+    localStorage.setItem('recentSearches', JSON.stringify(searches));
+    
+    $('.ui.search')
+    .search({
+      source: searches
+    })
+  ;
+};
+
+document.getElementById('search-bar').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+      saveSearch();
+    }
+  });
+
