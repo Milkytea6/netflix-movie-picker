@@ -10,10 +10,11 @@ let options = {
 async function getStreamingData(url) {
     try {
         console.log(url);
+        console.log(options);
         const response = await fetch(url, options);
         const result = await response.json();
         console.log(result);
-        for (let i = 0; i < result.result.length; i++) {
+        for (let i = 0; i < 10; i++) {
             console.log(result.result[i]);
             // Movie card div
             const movieCard = document.createElement('div');
@@ -47,21 +48,49 @@ async function getStreamingData(url) {
             // If there is streaming info, then it will itterate over the array returning each unique service that the movie is on.
             if (serviceArray) {
                 let uniqueServices = [];
+                let uniqueLinks = [];
+                const servicesAndLinks = {};
+            
                 for (let i = 0; i < serviceArray.length; i++) {
-                    uniqueServices = uniqueServices.concat(serviceArray[i].service)
+                    uniqueServices = uniqueServices.concat(serviceArray[i].service);
+                    uniqueLinks = uniqueLinks.concat(serviceArray[i].link);
                 }
-                uniqueServices = uniqueServices.filter((item,
-                    index) => uniqueServices.indexOf(item) === index);
+            
+                uniqueServices.forEach((service, index) => {
+                    servicesAndLinks[service] = uniqueLinks[index];
+                });
+        
 
-                movieService.textContent = `Available on: ${uniqueServices.join(',')}`;
+
+                const serviceDiv = document.createElement('div');
+                serviceDiv.classList.add('service-div');
+            
+                for (const service in servicesAndLinks) {
+            
+                    const serviceIcon = document.createElement('img');
+                    serviceIcon.classList.add('service-icon');
+                    serviceIcon.src = `./assets/images/${service}.svg`; // Set the icon source
+            
+                    const serviceLink = document.createElement('a');
+                    serviceLink.classList.add('service-link');
+                    serviceLink.href = servicesAndLinks[service]; // Set the link href
+                    serviceLink.textContent = service; // Set the link text
+            
+                    serviceLink.append(serviceIcon);
+                    serviceDiv.append(serviceLink);
+            
+                    movieCard.append(serviceDiv); // Append the service div to the movie card
+                }
             }
+
 
             else if (!serviceArray) {
                 movieService.textContent = ('Service is unavailable.');
             }
 
+
             // Append movie title and genre to card
-            movieTextDiv.append(movieTitle, movieType, movieGenre, movieService);
+            movieTextDiv.append(movieTitle, movieType, movieGenre);
             // append div to movie card
             movieCard.append(movieTextDiv)
             // Append card to document
@@ -72,7 +101,7 @@ async function getStreamingData(url) {
             const movieId = result.result[i].imdbId;
             console.log(movieId);
             const urlImbd = `https://imdb146.p.rapidapi.com/v1/title/?id=${movieId}`;
-            options = {
+            const options2 = {
                 method: 'GET',
                 headers: {
                     'X-RapidAPI-Key': 'db036f9a6amshfdc5efa0a9dbed8p1e4200jsn1ac6baaee515',
@@ -81,7 +110,7 @@ async function getStreamingData(url) {
             };
 
             console.log(urlImbd);
-            const response2 = await fetch(urlImbd, options);
+            const response2 = await fetch(urlImbd, options2);
             const result2 = await response2.json();
             console.log(result2);
             // Movie Img
@@ -104,6 +133,20 @@ async function getStreamingData(url) {
 
 }
 
+
+// Event Listener for the url links to the service icons
+const serviceLinks = document.querySelectorAll('.service-link');
+
+serviceLinks.forEach(function(button) {
+    button.addEventListener('click', handleUrl);
+
+    function handleUrl(event){
+        event.preventDefault();
+        window.location.href = event.target.href;
+    }
+
+    
+});
 searchForm.addEventListener('submit', function (event) {
     event.preventDefault();
     // Clears the  results section
@@ -116,6 +159,7 @@ searchForm.addEventListener('submit', function (event) {
     getStreamingData(url);
 }
 );
+
 
 const modalEl = document.querySelector('main div');
 
@@ -136,7 +180,6 @@ modalEl.addEventListener('submit', function (event) {
     getStreamingData(url);
 
 })
-
 function saveSearch(){
     var searchInput= document.getElementById('search-bar').value.trim();
     var searches= JSON.parse(localStorage.getItem('recentSearches')) || [];
@@ -160,4 +203,3 @@ document.getElementById('search-bar').addEventListener('keypress', function(even
       saveSearch();
     }
   });
-
