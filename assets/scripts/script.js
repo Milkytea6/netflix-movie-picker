@@ -69,12 +69,11 @@ async function getStreamingData(url) {
             
                     const serviceIcon = document.createElement('img');
                     serviceIcon.classList.add('service-icon');
-                    serviceIcon.src = `./assets/images/${service}.svg`; // Set the icon source
+                    serviceIcon.src = `./assets/images/${service}-img.svg`; // Set the icon source
             
                     const serviceLink = document.createElement('a');
                     serviceLink.classList.add('service-link');
                     serviceLink.href = servicesAndLinks[service]; // Set the link href
-                    serviceLink.textContent = service; // Set the link text
             
                     serviceLink.append(serviceIcon);
                     serviceDiv.append(serviceLink);
