@@ -21,6 +21,8 @@ function closeModal() {
 window.onclick = function (e) {
     if (e.target == overlay) {
         closeModal();
+        var pop= document.querySelector('.rotate');
+        pop.style.display='none';
     };
 }
 
@@ -40,6 +42,8 @@ function handleClick(event) {
 
 closeX.addEventListener('click', function () {
     closeModal();
+    var pop= document.querySelector('.rotate');
+    pop.style.display='none';
 })
 
 let genreArray = [];
