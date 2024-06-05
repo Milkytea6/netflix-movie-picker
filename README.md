@@ -1,6 +1,6 @@
 # <span style=" color:#e20000">Netflix Movie Picker</span>
 
-Welcoe to Netflix Movie Picker! This web application aims to simplify the daunting task of choosing a movie to watch on Netflix. With an extensive database of movies across various genres, Netflix Movie Picker provides you with a curated list of recommendations based on your selected preferences.
+Welcome to Netflix Movie Picker! This web application aims to simplify the daunting task of choosing a movie to watch on Netflix. With an extensive database of movies across various genres, Netflix Movie Picker provides you with a curated list of recommendations based on your selected preferences.
 
 ### <span style=" color:#e20000">Features</span>
 __Genre Selection:__ Choose from a wide range of genres including action, comedy, romance, thriller, sci-fi, and many more.  
@@ -10,7 +10,7 @@ __Detailed Information:__ Get detailed information about each recommended movie 
 __External Links:__ Direct links to Netflix for easy access to your chosen movie.  
 
 ### <span style=" color:#e20000">How to Use</span>
-Visit etflix Movie Picker website.(insert link here)  
+[Visit etflix Movie Picker website.](https://milkytea6.github.io/netflix-movie-picker/))  
 Select one or more genres from the provided options.  
 Click on the "Get Recommendations" button.  
 Browse through the list of recommended movies.  
