@@ -10,7 +10,7 @@ __Detailed Information:__ Get detailed information about each recommended movie 
 __External Links:__ Direct links to Netflix for easy access to your chosen movie.  
 
 ### <span style=" color:#e20000">How to Use</span>
-[Visit etflix Movie Picker website.](https://milkytea6.github.io/netflix-movie-picker/))  
+[Visit Netflix Movie Picker website.](https://milkytea6.github.io/netflix-movie-picker/))  
 Select one or more genres from the provided options.  
 Click on the "Get Recommendations" button.  
 Browse through the list of recommended movies.  
