@@ -1,0 +1,14 @@
+.genre-content {
+    background-color: rgb(46, 45, 45);
+}
+
+.genre-container{
+    background-color: rgb(47, 47, 47);
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+}
+.genre-container .button{
+
+   
+}
