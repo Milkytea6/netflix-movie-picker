@@ -2,35 +2,68 @@
     margin: 0;
     padding: 0;
 }
+:root{
+    --primary: #FF695E;
+    --secondary: rgb(46, 45, 45);
+    --contrast: aliceblue;
+}
 
 body {
-    background-color: rgb(57, 56, 56);
+    background-color: var(--secondary);
 }
 
 nav{
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
 }
     
 nav h1{
-    width: 25vw;
-    font-size: 3rem;
-    margin-right: 20%;
     color: #ffffff;
 }
 
 #search-form {
     display: flex;
-    justify-content: end;
     padding: 10px;
     margin-bottom: 10px;
+}
+#search-bar {
+    color: var(--primary);
+    padding: 10px 15px;
+    border: 3px solid var(--primary); 
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    margin: 0px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+.search-btn{
+    color: var(--primary);
+    padding: 10px 15px;
+    border: 3px solid var(--primary); 
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    margin: 0px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+.search-btn:hover {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    transform: scale(1.1);
+    color: var(--contrast);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+#movie-button{
+    display: none;
 }
 
 #modal-div .header,
 #modal-div .content,
 #modal-div .actions{
-    color: aliceblue;
-    background-color: rgb(47, 47, 47);
+    color: var(--contrast);
+    background-color: var(--secondary);
 }
 
 #modal-div .header{
@@ -44,37 +77,22 @@ nav h1{
     align-items: space-between;
 }
 
-#movie-button {
-    font-size: 1.5rem; 
-    display: block;
-    margin: 0 auto;
-}
-
 #movie-results {
     color: white;
 }
 .genre-content {
-    background-color: rgb(46, 45, 45);
+    background-color: var(--secondary);
 }
 
 .genre-container{
-    background-color: rgb(47, 47, 47);
+    background-color: var(--secondary);
 }
 
 .dark{
-    background-color: rgb(33, 33, 33);
+    background-color: var(--secondary);
     color: #ffffff;
 }
 
-#search-bar {
-  width: 200px;
-  height: 35px;
-  padding: 8px; 
-  border: 3px solid red; 
-  border-radius: 12px;
-  margin-left: 3px;
-  margin-right: 3px;
-}
 
 #searchDiv{
     margin-top: 2px;
