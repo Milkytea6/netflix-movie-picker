@@ -3,7 +3,7 @@ const movieResults = document.getElementById('movie-results');
 let options = {
     method: 'GET',
     headers: {
-        'X-RapidAPI-Key': '5ecfdebb7amsh0b7e70f9b85d7cbp1f36b1jsnb18ccc4bac95',
+        'X-RapidAPI-Key': 'db036f9a6amshfdc5efa0a9dbed8p1e4200jsn1ac6baaee515',
         'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
     }
 };
@@ -15,7 +15,7 @@ async function getStreamingData(url) {
         const result = await response.json();
         console.log(result);
         for (let i = 0; i < 10; i++) {
-            console.log(result.result[i]);
+            console.log(result[i]);
             // Movie card div
             const movieCard = document.createElement('div');
             movieCard.classList.add('movie-card');
@@ -32,27 +32,29 @@ async function getStreamingData(url) {
             // Movie Title
             const movieTitle = document.createElement('h2');
             movieTitle.classList.add('movie-title');
-            movieTitle.textContent = (`${result.result[i].title}`);
+            movieTitle.textContent = (`${result[i].title}`);
             // Movie type
             const movieType = document.createElement('p');
             movieType.classList.add('movie-type');
-            movieType.textContent = (`Type: ${result.result[i].type}`);
+            movieType.textContent = (`Type: ${result[i].showType}`);
             // Movie Genres
             const movieGenre = document.createElement('p');
             movieGenre.classList.add('movie-Genre');
-            movieGenre.textContent = (`Genre(s): ${result.result[i].genres.map((genre) => genre.name).join(',')}`);
+            movieGenre.textContent = (`Genre(s): ${result[i].genres.map((genre) => genre.name).join(',')}`);
             // Movie Service
             const movieService = document.createElement('p');
             movieService.classList.add('movie-service');
-            const serviceArray = result.result[i].streamingInfo.us;
+            const serviceArray = result[i].streamingOptions.us;
+            console.log(serviceArray);
             // If there is streaming info, then it will itterate over the array returning each unique service that the movie is on.
             if (serviceArray) {
                 let uniqueServices = [];
                 let uniqueLinks = [];
                 const servicesAndLinks = {};
+                console.log(servicesAndLinks);
             
                 for (let i = 0; i < serviceArray.length; i++) {
-                    uniqueServices = uniqueServices.concat(serviceArray[i].service);
+                    uniqueServices = uniqueServices.concat(serviceArray[i].service.id);
                     uniqueLinks = uniqueLinks.concat(serviceArray[i].link);
                 }
             
@@ -66,7 +68,7 @@ async function getStreamingData(url) {
                 serviceDiv.classList.add('service-div');
             
                 for (const service in servicesAndLinks) {
-            
+                    console.log(service);
                     const serviceIcon = document.createElement('img');
                     serviceIcon.classList.add('service-icon');
                     serviceIcon.src = `./assets/images/${service}-img.svg`; // Set the icon source
@@ -97,13 +99,13 @@ async function getStreamingData(url) {
 
 
             // Get image API
-            const movieId = result.result[i].imdbId;
+            const movieId = result[i].imdbId;
             console.log(movieId);
             const urlImbd = `https://imdb146.p.rapidapi.com/v1/title/?id=${movieId}`;
             const options2 = {
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Key': '5ecfdebb7amsh0b7e70f9b85d7cbp1f36b1jsnb18ccc4bac95',
+                    'X-RapidAPI-Key': 'db036f9a6amshfdc5efa0a9dbed8p1e4200jsn1ac6baaee515',
                     'X-RapidAPI-Host': 'imdb146.p.rapidapi.com'
                 }
             };
@@ -153,8 +155,7 @@ searchForm.addEventListener('submit', function (event) {
     var pop= document.querySelector('.rotate');
     pop.style.display='none';
     const searchInput = document.getElementById('search-bar').value;
-    const url = `https://streaming-availability.p.rapidapi.com/search/title?title=${searchInput}&country=us&show_type=all&output_language=en`;
-    console.log(url);
+    const url = `https://streaming-availability.p.rapidapi.com/shows/search/title?country=us&title=${searchInput}&series_granularity=show&show_type=movie&output_language=en`;
     getStreamingData(url);
 }
 );
@@ -173,7 +174,7 @@ modalEl.addEventListener('submit', function (event) {
     const genreRel = 'and';// Includes all selected genres
     const showType = `movie`;// Results are series or movie
 
-    const url = `https://streaming-availability.p.rapidapi.com/search/filters?services=${service}&country=${country}&output_language=${outputLang}&order_by=${orderBy}&genres=${genreCodes}&genres_relation=${genreRel}&show_type=${showType}`;
+    const url = 'https://streaming-availability.p.rapidapi.com/shows/search/filters?series_granularity=show&genres=romance%2Ccomedy&order_direction=asc&order_by=original_title&genres_relation=and&output_language=en&show_type=movie';
     var pop= document.querySelector('.rotate');
     pop.style.display='none';
     console.log(url);

@@ -1,89 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/semantic/semantic.min.css">
-    <link rel="stylesheet" href="./assets/styles/style.css">
-    <link rel="stylesheet" href="./assets/styles/api-style.css">
-    <link rel="stylesheet" href="./assets/styles/genre-buttons.css">
-    <title>Netflix Movie Picker</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/semantic/semantic.min.css">
+  <link rel="stylesheet" href="./assets/styles/style.css">
+  <link rel="stylesheet" href="./assets/styles/api-style.css">
+  <link rel="stylesheet" href="./assets/styles/genre-buttons.css">
+  <title>Movie Service Finder</title>
 </head>
+
 <body>
   <header>
-      <nav>
-        <h1>Netflix Movie Picker</h1>
-        <form id="search-form"> 
-          <div class="ui search" id="searchDiv">
-            <div class="ui icon input">
-              <input class="prompt" id="search-bar" type="text" autocomplete="off" placeholder="Search Movies...">            </div>
-            <div class="results"></div>
-          </div>          
-          <button id="search-button" class="circular ui icon button">
-            <i class="search icon"></i>
-          </button>
-          <ul id="recentSearches"></ul>
-        </form>
-      </nav>     
+    <nav>
+      <h1>Movie Service Finder</h1>
+      <form id="search-form">
+        <input class="prompt" id="search-bar" type="text" autocomplete="off" placeholder="Search Movies...">
+        <button class="search-btn" type="submit">Search By Title</button>
+      </form>
+      <button id="movie-button" class="ui.modal ui inverted search-btn">Search By Genre</button>
+    </nav>
   </header>
-    <main>
-        <button id="movie-button" class="ui.modal ui inverted red button">Pick a Movie!</button>
-       <div class="generalContainer">
-         <div id="modal-div" class="ui modal">
-             <i class="close"></i>
-             <div class="header">
-               <h1>Choose your Genres</h1>
-               <span id="close-x">&#10006;</span>
-             </div>
-             <div class="genre-content">
-               <div class="description">
-                 <div class="genre-container bg-dark">
-                     <button id="genres" class="ui inverted teal basic button" data-result-api="28";>Action</button>
-                     <button id="genres" class="ui inverted teal basic button" data-result-api="35";>Comedy</button>
-                     <button id="genres" class="ui inverted teal basic button" data-result-api="53";>Thriller</button>
-                     <button id="genres" class="ui inverted teal basic button" data-result-api="16";>Animation</button>
-                     <button id="genres" class="ui inverted teal basic button" data-result-api="1">Biography</button>
-                     <button id="genres" class="ui inverted teal basic button" data-result-api="35">Comedy</button>
-                     <button id="genres" class="ui inverted teal basic button" data-result-api="80">Crime</button>
-                     <button id="genres" class="ui inverted teal basic button" data-result-api="99">Documentary</button>
-                     <button id="genres" class="ui inverted teal basic button" data-result-api="18">Drama</button>
-                     <button id="genres" class="ui inverted teal basic button" data-result-api="10751">Family</button>
-                     <button id="genres" class="ui inverted teal basic button" data-result-api="14">Fantasy</button>
-                     <button id="genres" class="ui inverted teal basic button" data-result-api="36">History</button>
-                     <button id="genres" class="ui inverted teal basic button" data-result-api="27">Horror</button>
-                     <button id="genres" class="ui inverted teal basic button" data-result-api="10402">Music</button>
-                     <button id="genres" class="ui inverted teal basic button" data-result-api="4">Musical</button>
-                     <button id="genres" class="ui inverted teal basic button" data-result-api="9648">Mystery</button>
-                     <button id="genres" class="ui inverted teal basic button" data-result-api="10749">Romance</button>
-                     <button id="genres" class="ui inverted teal basic button" data-result-api="878">Science Fiction</button>
-                     <button id="genres" class="ui inverted teal basic button" data-result-api="5">Sport</button>
-                     <button id="genres" class="ui inverted teal basic button" data-result-api="10752">War</button>
-                     <button id="genres" class="ui inverted teal basic button" data-result-api="37">Western</button>
-                 </div>
-               </div>
-             </div>
-             <div class="actions">
-               <div id="modal-type" class="ui large buttons">
-                 <button class="type ui button" value="movie">Movie</button>
-                 <div class="or"></div>
-                 <button class="type ui button" value="all">Both</button>
-                 <div class="or"></div>
-                 <button class="type ui button" value="series">Series</button>
-               </div>
-               <div id="modal-submit" class="ui positive right labeled button">
-                 Search
-                 <i class="checkmark"></i>
-               </div>
-             </div>
-           </div>
-       </div>
-        <div class="overlay" id="overlay"></div>
-        <img src="https://www.pngplay.com/wp-content/uploads/2/Popcorn-Transparent-File.png" alt="popcorn" class="rotate">
-        <div id="movie-results"></div>
-    </main>
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="./assets/semantic/semantic.min.js"></script>
-    <script src="./assets/scripts/script.js"></script>
-    <script src="./assets/scripts/modal.js"></script>
+  <main>
+    <div class="generalContainer">
+      <div id="modal-div" class="ui modal">
+        <i class="close"></i>
+        <div class="header">
+          <h1>Choose your Genres</h1>
+          <span id="close-x">&#10006;</span>
+        </div>
+        <div class="genre-content">
+          <div class="description">
+            <div class="genre-container bg-dark">
+              <button id="genres" class="ui inverted teal basic button" data-result-api="28" ;>Action</button>
+              <button id="genres" class="ui inverted teal basic button" data-result-api="35" ;>Comedy</button>
+              <button id="genres" class="ui inverted teal basic button" data-result-api="53" ;>Thriller</button>
+              <button id="genres" class="ui inverted teal basic button" data-result-api="16" ;>Animation</button>
+              <button id="genres" class="ui inverted teal basic button" data-result-api="1">Biography</button>
+              <button id="genres" class="ui inverted teal basic button" data-result-api="35">Comedy</button>
+              <button id="genres" class="ui inverted teal basic button" data-result-api="80">Crime</button>
+              <button id="genres" class="ui inverted teal basic button" data-result-api="99">Documentary</button>
+              <button id="genres" class="ui inverted teal basic button" data-result-api="18">Drama</button>
+              <button id="genres" class="ui inverted teal basic button" data-result-api="10751">Family</button>
+              <button id="genres" class="ui inverted teal basic button" data-result-api="14">Fantasy</button>
+              <button id="genres" class="ui inverted teal basic button" data-result-api="36">History</button>
+              <button id="genres" class="ui inverted teal basic button" data-result-api="27">Horror</button>
+              <button id="genres" class="ui inverted teal basic button" data-result-api="10402">Music</button>
+              <button id="genres" class="ui inverted teal basic button" data-result-api="4">Musical</button>
+              <button id="genres" class="ui inverted teal basic button" data-result-api="9648">Mystery</button>
+              <button id="genres" class="ui inverted teal basic button" data-result-api="10749">Romance</button>
+              <button id="genres" class="ui inverted teal basic button" data-result-api="878">Science Fiction</button>
+              <button id="genres" class="ui inverted teal basic button" data-result-api="5">Sport</button>
+              <button id="genres" class="ui inverted teal basic button" data-result-api="10752">War</button>
+              <button id="genres" class="ui inverted teal basic button" data-result-api="37">Western</button>
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+          <div id="modal-type" class="ui large buttons">
+            <button class="type ui button" value="movie">Movie</button>
+            <div class="or"></div>
+            <button class="type ui button" value="all">Both</button>
+            <div class="or"></div>
+            <button class="type ui button" value="series">Series</button>
+          </div>
+          <div id="modal-submit" class="ui positive right labeled button">
+            Search
+            <i class="checkmark"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <img src="https://www.pngplay.com/wp-content/uploads/2/Popcorn-Transparent-File.png" alt="popcorn" class="rotate">
+    <div id="movie-results"></div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <script src="./assets/semantic/semantic.min.js"></script>
+  <script src="./assets/scripts/script.js"></script>
+  <script src="./assets/scripts/modal.js"></script>
 </body>
+
 </html>
