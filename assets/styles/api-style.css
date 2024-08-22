@@ -67,4 +67,10 @@
     display: inline-block; /* Ensures links appear next to each other */
     text-decoration: none; /* Removes underline from links */
   }
+
+  @media (width <= 450px){
+    .movie-card{
+        min-width: 250px;
+    }
+  }
   
