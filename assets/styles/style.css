@@ -27,6 +27,7 @@ nav h1{
 
 #search-form {
     display: flex;
+    flex-direction: column;
     padding: 10px;
     margin-bottom: 10px;
 }
@@ -112,3 +113,9 @@ nav h1{
         transform: rotate(360deg);
     }
 }
+@media (width <= 450px){
+    #search-form{
+        flex-direction: column;
+    }
+  }
+  
