@@ -7,7 +7,10 @@
     --secondary: rgb(46, 45, 45);
     --contrast: aliceblue;
 }
-
+/* Hides genre function until it's working */
+#movie-button{
+    display: none;
+}
 body {
     background-color: var(--secondary);
 }
@@ -38,7 +41,9 @@ nav h1{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
-.search-btn{
+.search-btn,
+.genre-buttons,
+.show-type-buttons{
     color: var(--primary);
     padding: 10px 15px;
     border: 3px solid var(--primary); 
@@ -49,50 +54,23 @@ nav h1{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
-.search-btn:hover {
+.search-btn:hover,
+.genre-buttons:hover,
+.show-type-buttons:hover {
     background: linear-gradient(45deg, var(--primary), var(--secondary));
     transform: scale(1.1);
     color: var(--contrast);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
   }
-#movie-button{
-    display: none;
-}
-
-#modal-div .header,
-#modal-div .content,
-#modal-div .actions{
-    color: var(--contrast);
-    background-color: var(--secondary);
-}
-
-#modal-div .header{
-    display: flex;
-    justify-content: space-between;
-}
-.generalContainer{
-    margin-top: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: space-between;
-}
 
 #movie-results {
     color: white;
-}
-.genre-content {
-    background-color: var(--secondary);
-}
-
-.genre-container{
-    background-color: var(--secondary);
 }
 
 .dark{
     background-color: var(--secondary);
     color: #ffffff;
 }
-
 
 #searchDiv{
     margin-top: 2px;

@@ -174,7 +174,7 @@ modalEl.addEventListener('submit', function (event) {
     const genreRel = 'and';// Includes all selected genres
     const showType = `movie`;// Results are series or movie
 
-    const url = 'https://streaming-availability.p.rapidapi.com/shows/search/filters?series_granularity=show&genres=romance%2Ccomedy&order_direction=asc&order_by=original_title&genres_relation=and&output_language=en&show_type=movie';
+    const url = `https://streaming-availability.p.rapidapi.com/shows/search/filters?country=${country}&series_granularity=show&genres=war%2Cdrama&order_direction=asc&order_by=original_title&genres_relation=${genreRel}&output_language=en&show_type=${showType}`;
     var pop= document.querySelector('.rotate');
     pop.style.display='none';
     console.log(url);
