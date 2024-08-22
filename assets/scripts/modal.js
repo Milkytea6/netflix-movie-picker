@@ -1,6 +1,6 @@
 const modalButton = document.getElementById('movie-button');
 const modal = document.querySelector('.ui.modal');
-const genreButtons = document.querySelectorAll('.genre-container #genres')
+const genreButtons = document.querySelectorAll('.genre-buttons')
 const modalSubmit = document.querySelector('#modal-submit');
 const overlay = document.getElementById('overlay');
 const closeX = document.getElementById('close-x');
@@ -59,15 +59,30 @@ genreButtons.forEach(function (button) {
 });
 
 // creates active class on clicked button in the actions div
-$(document).ready(function () {
-    $('.type.ui.button').click(function () {
-        // Remove active class from all buttons
-        $('.type.ui.button').removeClass('active');
+// $(document).ready(function () {
+//     $('.type.ui.button').click(function () {
+//         // Remove active class from all buttons
+//         $('.type.ui.button').removeClass('active');
 
-        // Add active class to the clicked button
-        $(this).addClass('active');
+//         // Add active class to the clicked button
+//         $(this).addClass('active');
+//     });
+// });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.genre-buttons .show-type-buttons');
+  
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove 'active' class from all buttons
+        buttons.forEach(btn => btn.classList.remove('active'));
+  
+        // Add 'active' class to the clicked button
+        button.classList.add('active');
+      });
     });
-});
+  });
+  
 
 
 modalSubmit.addEventListener('click', function () {
@@ -83,7 +98,7 @@ modalSubmit.addEventListener('click', function () {
     const modalTypeActive = document.querySelector('#modal-type .active');// Finds the active button
     const showType = modalTypeActive.getAttribute('value');// Get the value of the active button and return movie, series, or all
 
-    const url = `https://streaming-availability.p.rapidapi.com/search/filters?services=${service}&country=${country}&output_language=${outputLang}&order_by=${orderBy}&genres=${genreCodes}&genres_relation=${genreRel}&show_type=${showType}`;
+    const url = `https://streaming-availability.p.rapidapi.com/shows/search/filters?country=${country}&series_granularity=show&genres=war%2Cdrama&order_direction=asc&order_by=original_title&genres_relation=${genreRel}&output_language=en&show_type=${showType}`;
 
     getStreamingData(url);
 });
