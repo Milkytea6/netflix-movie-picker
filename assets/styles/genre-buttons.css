@@ -9,6 +9,19 @@
     justify-content: center;
     align-items: space-between;
 }
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.close,
+#close-x{
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: var(--contrast);
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
 
 .container{
     padding: 16px 0px;
@@ -21,15 +34,40 @@
     padding: 10px 25px;
     margin: 5px 5px;
 }
+.basic{
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: var(--contrast);
+}
+#modal-div{
+    background: var(--secondary);
+
+}
 #modal-div .header{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 #modal-div .header,
 #modal-div .content,
 #modal-div .actions{
-    color: var(--contrast);
+    color: var(--primary);
     background-color: var(--secondary);
+}
+#modal-submit{
+    color: var(--primary);
+    padding: 10px 15px;
+    border: 3px solid var(--primary); 
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    margin: 0px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+#modal-submit:hover{
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: var(--contrast);
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 .active
  {

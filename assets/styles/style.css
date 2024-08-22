@@ -8,9 +8,9 @@
     --contrast: aliceblue;
 }
 /* Hides genre function until it's working */
-#movie-button{
+/* #movie-button{
     display: none;
-}
+} */
 body {
     background-color: var(--secondary);
 }
@@ -58,8 +58,8 @@ nav h1{
 .genre-buttons:hover,
 .show-type-buttons:hover {
     background: linear-gradient(45deg, var(--primary), var(--secondary));
-    transform: scale(1.1);
     color: var(--contrast);
+    transform: scale(1.1);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
   }
 

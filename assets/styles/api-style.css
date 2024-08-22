@@ -1,25 +1,70 @@
+:root{
+    --primary: #FF695E;
+    --secondary: rgb(46, 45, 45);
+    --contrast: aliceblue;
+}
+
 #movie-results{
     display:flex;
     flex-wrap: wrap;
-    margin: 5px;
+    margin: 25px;
+    justify-content: center;
 }
-.movie-card{
+.movie-card {
     display: flex;
-    flex: 1 0 30vw;
-    border: 5px solid rgb(161, 0, 0);
-    box-shadow: 5px 5px 5px black;
-    margin: 5px;
-    padding: 20px;
-    font-size: larger;
-    justify-content: start;
-    flex-direction: row;
-    background-color: rgb(60, 60, 60);
-}
-.movie-img-div{
-    justify-content: space-around;
-}
-.movie-img{
-    max-width: 200px;
-    max-height: 200px;
-    margin-left: 20px;
-}
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 15px;
+    width: 30%;
+    min-width: 350px;
+    border: 3px solid var(--primary); /* Optional, for card border */
+    border-radius: 40px; /* Optional, for rounded corners */
+    overflow: hidden; /* Ensures content doesn't overflow card */
+    background-color: var(--secondary); /* Optional, for card background */
+  }
+  
+  .movie-img-div {
+    width: 100%;
+    height: auto; /* Ensures image scales correctly */
+  }
+  
+  .movie-img {
+    display: block;
+    width: 100%; /* Ensures image takes up full width of parent */
+    height: auto; /* Maintains aspect ratio of image */
+  }
+  
+  .movie-text-div {
+    text-align: center;
+    padding: 16px; /* Adds space around text */
+  }
+  
+  .movie-title {
+    margin: 0; /* Removes default margin */
+    font-size: 1.5em; /* Adjust size as needed */
+  }
+  
+  .movie-type, .movie-Genre {
+    margin: 8px 0; /* Adds space between paragraphs */
+    font-size: 1em; /* Adjust size as needed */
+  }
+  
+  .service-div {
+    display: flex;
+    justify-content: center; /* Centers service icons horizontally */
+    flex-wrap: wrap;
+    gap: 10px; /* Adds space between icons */
+    padding: 8px; /* Adds space around service icons */
+  }
+  
+  .service-icon {
+    width: 100vw; /* Adjust icon size as needed */
+    height: auto; /* Maintains aspect ratio of icon */
+    display: inline-block; /* Ensures icons appear next to each other */
+  }
+  
+  .service-link {
+    display: inline-block; /* Ensures links appear next to each other */
+    text-decoration: none; /* Removes underline from links */
+  }
+  

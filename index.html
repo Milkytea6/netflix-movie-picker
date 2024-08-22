@@ -25,10 +25,12 @@
   <main>
     <div class="generalContainer">
       <div id="modal-div" class="ui modal">
-        <i class="close"></i>
+        <div>
+          <i class="close"></i>
+          <h1 id="close-x">Close Window &#10006;</h1>
+        </div>
         <div class="header">
-          <h1>Choose your Genres</h1>
-          <span id="close-x">&#10006;</span>
+          <h2>Sort by Genres</h2>
         </div>
         <div class="genre-content">
           <div class="description">
@@ -54,16 +56,86 @@
               <button class="genre-buttons" data-result-api="10752" value="war">War</button>
               <button class="genre-buttons" data-result-api="37" value="western">Western</button>
             </div>
+            <div class="header">
+              <h2>Sort by Show Type</h2>
+            </div>
             <div class="container bg-dark">
               <button class="show-type-buttons" value="movie">Movie</button>
               <button class="show-type-buttons" value="">Both</button>
               <button class="show-type-buttons" value="series">Series</button>
-              <button id="modal-submit" class="show-type-buttons" type="submit">Search</button>
+              <button id="modal-submit" type="submit">Search</button>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+
+    <div id="movie-results">
+      <div class="movie-card">
+        <div class="movie-img-div"><img class="movie-img"
+            src="https://m.media-amazon.com/images/M/MV5BODc5YTBhMTItMjhkNi00ZTIxLWI0YjAtNTZmOTY0YjRlZGQ0XkEyXkFqcGdeQXVyODUwNjEzMzg@._V1_.jpg">
+        </div>
+        <div class="service-div"><a class="service-link"
+            href="https://www.paramountplus.com/shows/avatar-the-last-airbender/"><img class="service-icon"
+              src="./assets/images/paramount-img.svg"></a><a class="service-link"
+            href="https://tv.apple.com/us/show/avatar-the-last-airbender/umc.cmc.4d38ljozi439j6g8e5m5o2bv5"><img
+              class="service-icon" src="./assets/images/apple-img.svg"></a><a class="service-link"
+            href="https://www.netflix.com/title/70142405/"><img class="service-icon"
+              src="./assets/images/netflix-img.svg"></a><a class="service-link"
+            href="https://www.amazon.com/gp/video/detail/B00C13WWO6"><img class="service-icon"
+              src="./assets/images/prime-img.svg"></a></div>
+        <div class="movie-text-div">
+          <h2 class="movie-title">Avatar: The Last Airbender</h2>
+          <p class="movie-type">Type: series</p>
+          <p class="movie-Genre">Genre(s): Action,Adventure,Animation</p>
+        </div>
+      </div>
+      <div class="movie-card">
+        <div class="movie-text-div">
+          <h2 class="movie-title">Avatar: The Last Airbender</h2>
+          <p class="movie-type">Type: series</p>
+          <p class="movie-Genre">Genre(s): Action,Adventure,Animation</p>
+        </div>
+        <div class="service-div"><a class="service-link"
+            href="https://www.paramountplus.com/shows/avatar-the-last-airbender/"><img class="service-icon"
+              src="./assets/images/paramount-img.svg"></a><a class="service-link"
+            href="https://tv.apple.com/us/show/avatar-the-last-airbender/umc.cmc.4d38ljozi439j6g8e5m5o2bv5"><img
+              class="service-icon" src="./assets/images/apple-img.svg"></a><a class="service-link"
+            href="https://www.netflix.com/title/70142405/"><img class="service-icon"
+              src="./assets/images/netflix-img.svg"></a><a class="service-link"
+            href="https://www.amazon.com/gp/video/detail/B00C13WWO6"><img class="service-icon"
+              src="./assets/images/prime-img.svg"></a></div>
+        <div class="movie-img-div"><img class="movie-img"
+            src="https://m.media-amazon.com/images/M/MV5BODc5YTBhMTItMjhkNi00ZTIxLWI0YjAtNTZmOTY0YjRlZGQ0XkEyXkFqcGdeQXVyODUwNjEzMzg@._V1_.jpg">
+        </div>
+      </div>
+      <div class="movie-card">
+        <div class="service-div"><a class="service-link"
+            href="https://www.paramountplus.com/shows/avatar-the-last-airbender/"><img class="service-icon"
+              src="./assets/images/paramount-img.svg"></a><a class="service-link"
+            href="https://tv.apple.com/us/show/avatar-the-last-airbender/umc.cmc.4d38ljozi439j6g8e5m5o2bv5"><img
+              class="service-icon" src="./assets/images/apple-img.svg"></a><a class="service-link"
+            href="https://www.netflix.com/title/70142405/"><img class="service-icon"
+              src="./assets/images/netflix-img.svg"></a><a class="service-link"
+            href="https://www.amazon.com/gp/video/detail/B00C13WWO6"><img class="service-icon"
+              src="./assets/images/prime-img.svg"></a></div>
+        <div class="movie-text-div">
+          <h2 class="movie-title">Avatar: The Last Airbender</h2>
+          <p class="movie-type">Type: series</p>
+          <p class="movie-Genre">Genre(s): Action,Adventure,Animation</p>
+        </div>
+        <div class="movie-img-div"><img class="movie-img"
+            src="https://m.media-amazon.com/images/M/MV5BODc5YTBhMTItMjhkNi00ZTIxLWI0YjAtNTZmOTY0YjRlZGQ0XkEyXkFqcGdeQXVyODUwNjEzMzg@._V1_.jpg">
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
     <div class="overlay" id="overlay"></div>
     <img src="https://www.pngplay.com/wp-content/uploads/2/Popcorn-Transparent-File.png" alt="popcorn" class="rotate">
     <div id="movie-results"></div>
